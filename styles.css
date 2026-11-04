@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #020b32;
+    color: white;
+    font-family: "Courier New", monospace;
+}
+
+.menu {
+    background-color: #020b32;
+    padding: 0;
+    justify-content: flex-start;
+}
+
+.menu .nav-link {
+    color: #55e4e9;
+    padding: 12px 24px;
+    font-weight: bold;
+}
+
+.menu .nav-link:hover,
+.menu .nav-link.ativo {
+    background-color: #55dfe4;
+    color: #020b32;
+}
+
+.logo-principal {
+    text-align: center;
+    padding: 25px 10px 15px;
+}
+
+.logo-principal h1 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(40px, 10vw, 100px);
+    font-weight: 1000;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.banner img {
+    width: 100%;
+    height: 860px;
+    object-fit: cover;
+    display: block;
+}
+
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px;
+}
+
+.indicadores span {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+}
+
+.indicadores span:first-child {
+    background: #55e4e9;
+}
+
+.sobre {
+    padding: 100px 5% 110px;
+}
+
+.sobre h2,
+.destaques > h2 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(36px, 7vw, 65px);
+    font-weight: 1000;
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.sobre-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.imagem-sobre {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.imagem-sobre img {
+    max-width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+}
+
+.texto-sobre {
+    width: 55%;
+    text-align: center;
+}
+
+.linha {
+    width: 45%;
+    height: 6px;
+    background: #55e4e9;
+    margin: 0 auto 20px;
+}
+
+.texto-sobre p {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.categoria-secao {
+    padding: 40px 3% 70px;
+}
+
+.categoria-secao > h2 {
+    margin-bottom: 25px;
+}
+
+.titulo-secao {
+    margin: 0 0 30px;
+}
+
+.titulo-secao h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Somente os h3 das categorias */
+.titulo-categoria {
+    width: fit-content;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 8px;
+    border-bottom: 4px solid #55e4e9;
+}
+
+/* Categorias ímpares: título à esquerda */
+.categoria-secao:nth-child(odd) .titulo-categoria {
+    margin-right: auto;
+    text-align: left;
+    border-bottom: 4px solid #ff1744;
+}
+
+/* Categorias pares: título à direita */
+.categoria-secao:nth-child(even) .titulo-categoria {
+    margin-left: auto;
+    text-align: right;
+    border-bottom: 4px solid #55e4e9;
+}
+
+/* Organiza os cards */
+.cards {
+    display: flex !important;
+    align-items: stretch;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Estilo comum */
+.card-projeto {
+    box-sizing: border-box;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+/* Ímpares: ciano e menores */
+.card-projeto:nth-child(odd) {
+    background-color: #55e4e9 !important;
+    flex: 0.5;
+}
+
+/* Pares: vermelho e maiores */
+.card-projeto:nth-child(even) {
+    background-color: #ff1744 !important;
+    flex: 1.5;
+}
+
+/* Imagens */
+.card-projeto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Conteúdo */
+.card-conteudo {
+    padding: 18px;
+}
+
+footer {
+    background-color: #aaa;
+    color: #020b32;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+    padding: 55px 20px;
+}
+
+.footer-logo,
+.footer-contato {
+    width: 40%;
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-logo img {
+    max-width: 100px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.footer-logo h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-contato h2 {
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-contato p {
+    font-size: 12px;
+}
+
+@media (max-width: 650px) {
+    .menu .nav-link {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .banner img {
+        height: 200px;
+    }
+
+    .sobre {
+        padding: 60px 6%;
+    }
+
+    .sobre-conteudo {
+        flex-direction: column;
+    }
+
+    .imagem-sobre,
+    .texto-sobre {
+        width: 100%;
+    }
+
+    .imagem-sobre img {
+        max-height: 150px;
+    }
+
+    .cards {
+        gap: 15px;
+    }
+
+    .card-projeto img {
+        height: 130px;
+    }
+
+    .card-projeto p {
+        font-size: 10px;
+        padding: 10px;
+    }
+
+    .visitas .card-projeto:first-child,
+    .oficinas .card-projeto:last-child {
+        width: 38%;
+    }
+
+    .visitas .card-projeto:last-child,
+    .oficinas .card-projeto:first-child {
+        width: 62%;
+        margin-left: 0;
+    }
+
+    footer {
+        padding: 35px 15px;
+        gap: 15px;
+    }
+
+    .footer-logo,
+    .footer-contato {
+        width: 50%;
+    }
+
+    .footer-contato h2 {
+        font-size: 22px;
+    }
+}
