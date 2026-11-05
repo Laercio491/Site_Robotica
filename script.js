@@ -46,7 +46,7 @@ function criarCard(destaques) {
                     <h3>${titulo}</h3>
                     <p>${resumo}</p>
                 </div>                
-  `;
+    `;
 
 
     return card;

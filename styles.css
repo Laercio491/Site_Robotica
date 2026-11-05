@@ -176,6 +176,7 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 15px;
+    color: black;
 }
 
 /* Ímpares: ciano e menores */
