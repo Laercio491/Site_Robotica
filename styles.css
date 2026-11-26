@@ -679,6 +679,33 @@ footer {
         font-size: 22px;
     }
 }
+@media (max-width: 650px) {
+
+    /* Menu principal */
+    .menu {
+        padding: 3px 5px;
+    }
+
+    .menu .nav-link {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    /* Botões de acessibilidade */
+    .botoes-acessibilidade {
+        border: none;
+        padding: 2px;
+        margin-right: 5px;
+        gap: 4px;
+    }
+
+    .botoes-acessibilidade button {
+        padding: 4px 7px;
+        font-size: 12px;
+        border-width: 1px;
+        border-radius: 6px;
+    }
+}
 
 /* Carrossel*/
 
