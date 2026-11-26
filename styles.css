@@ -705,6 +705,10 @@ footer {
         border-width: 1px;
         border-radius: 6px;
     }
+    .instagram-link{
+        width: 12px;
+        height: 12px;
+    }
 }
 
 /* Carrossel*/
