@@ -27,15 +27,16 @@ const response = await client.getByType("destaques");
 const modal = document.querySelector("#modal");
 
 function criarCard(destaques) {
-    const { title, image, content, category } = destaques.data;
+    const { title, image, resumo, content, category } = destaques.data;
     //const data = new Date(post.first_publication_date).toLocaleDateString("pt-BR");
 
     // title e description são Rich Text: o asText transforma em texto puro
     const titulo = prismic.asText(title);
-    const resumo = prismic.asText(content);
+    const resumoT = prismic.asText(resumo);
 
     // category é um Content Relationship: o link traz o uid da categoria
     const nomeCategoria = category?.uid ?? "";
+    
 
     const card = document.createElement("article");
     card.className = "card-projeto";
@@ -44,7 +45,7 @@ function criarCard(destaques) {
 
                 <div class="card-conteudo">
                     <h3>${titulo}</h3>
-                    <p>${resumo}</p>
+                    <p>${resumoT}</p>
                 </div>                
     `;
 
@@ -62,7 +63,14 @@ response.results.forEach((destaques) => {
 
 // 7. Seção de uma categoria: troque o UID para mostrar outra categoria
 const categorias = await client.getAllByType("category");
-const destaques = await client.getAllByType("destaques");
+const destaques = await client.getAllByType("destaques", {
+    orderings: [
+        {
+            field: "document.first_publication_date",
+            direction: "desc"
+        }
+    ]
+});
 
 categorias.forEach((categoria) => {
     const secao = document.createElement("section");
@@ -79,9 +87,73 @@ categorias.forEach((categoria) => {
     secao.appendChild(cards);
     lista.appendChild(secao);
 
-    destaques.forEach((destaque) => {
-        if (destaque.data.category?.id === categoria.id) {
-            cards.appendChild(criarCard(destaque));
-        }
+    // Filtra os destaques da categoria e limita a 4
+    const destaquesCategoria = destaques
+        .filter((destaque) => destaque.data.category?.id === categoria.id)
+        .slice(0, 4);
+
+    destaquesCategoria.forEach((destaque) => {
+        cards.appendChild(criarCard(destaque));
     });
+
+    
+});
+
+//separa--------------------------
+
+const modalS = document.getElementById("modal-sobre");
+const modalConteudo = document.getElementById("modal-conteudo");
+
+const tituloSobre = document.getElementById("sobre-titulo");
+const resumoSobre = document.getElementById("sobre-resumo");
+const btnLerSobre = document.getElementById("btn-ler-sobre");
+
+const fecharModal = document.getElementById("fechar-modal");
+
+// Busca o documento Sobre no Prismic
+const documentoSobre = await client.getSingle("historia");
+
+function carregarSobre(documento) {
+
+    const titulo = prismic.asText(documento.data.title);
+    const resumo = prismic.asText(documento.data.resumo);
+    const conteudo = documento.data.conteudo;
+    const imagem = documento.data.image;
+
+    // Exibe o resumo na página
+    tituloSobre.textContent = titulo;
+    resumoSobre.textContent = resumo;
+
+    // Abre o modal com o conteúdo completo
+    btnLerSobre.addEventListener("click", () => {
+
+        modalConteudo.innerHTML = `
+            ${prismic.isFilled.image(imagem) ? `
+                <img src="${prismic.asImageSrc(imagem)}"
+                     alt="${imagem.alt ?? ""}"
+                     class="imagem-modal">
+            ` : ""}
+
+            <div class="post-texto">
+                <h1>${titulo}</h1>
+
+                <p class="resumo">${resumo}</p>
+
+                <div class="conteudo">
+                    ${prismic.asHTML(conteudo)}
+                </div>
+            </div>
+        `;
+
+        modalS.showModal();
+        modalS.scrollTop = 0;
+    });
+}
+
+// Carrega as informações do Sobre
+carregarSobre(documentoSobre);
+
+// Fecha o modal
+fecharModal.addEventListener("click", () => {
+    modalS.close();
 });

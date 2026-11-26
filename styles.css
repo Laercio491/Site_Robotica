@@ -11,13 +11,96 @@ html {
 body {
     background-color: #020b32;
     color: white;
-    font-family: "Courier New", monospace;
+    font-family: "Helvetica", monospace;
+    padding-top: 50px;
+}
+
+/* Botões de acessibilidade */
+.botoes-acessibilidade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    margin-right: 25px;
+    padding: 5px 8px;
+    border: 1px solid #55e4e9;
+    border-radius: 10px;
+}
+
+.botoes-acessibilidade button {
+    background-color: transparent;
+    color: #55e4e9;
+    border: 2px solid #55e4e9;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botoes-acessibilidade button:hover {
+    background-color: #020b32;
+    color: #ff1744;
+    border-color: #ff1744;
+}
+
+/* Modo claro */
+body.modo-claro {
+    background-color: #f2f2f2;
+    color: #020b32;
+}
+
+body.modo-claro .menu {
+    background-color: #ffffff;
+}
+
+body.modo-claro .menu .nav-link {
+    color: #020b32;
+}
+
+body.modo-claro .sobre,
+body.modo-claro .destaques,
+body.modo-claro .contato-container {
+    background-color: #f2f2f2;
+    color: #020b32;
+}
+
+body.modo-claro .texto-sobre,
+body.modo-claro .integracao {
+    color: #020b32;
+}
+
+body.modo-claro .integracao {
+    background-color: #ffffff;
+}
+
+body.modo-claro footer {
+    background-color: #ffffff;
+    color: #020b32;
+}
+
+body.modo-claro .botoes-acessibilidade button {
+    color: #020b32;
+    border-color: #020b32;
+}
+
+body.modo-claro .botoes-acessibilidade button:hover {
+    background-color: #ffffff;
+    color: #ff1744;
+    border: 2px solid #ff1744;
 }
 
 .menu {
     background-color: #020b32;
     padding: 0;
     justify-content: flex-start;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .menu .nav-link {
@@ -37,12 +120,29 @@ body {
     padding: 25px 10px 15px;
 }
 
-.logo-principal h1 {
-    font-family: Arial, sans-serif;
-    font-size: clamp(40px, 10vw, 100px);
-    font-weight: 1000;
-    letter-spacing: 2px;
+.logo-principal {
+    width: 100%;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.titulotop {
+    width: 100%;
+    text-align: center;
+}
+
+.logo-principal h1,
+.titulotop h1 {
+    font-family: "Dela Gothic One", Arial, sans-serif;
+    font-size: clamp(35px, 10vw, 180px);
+    font-weight: 400;
+    letter-spacing: clamp(1px, 0.5vw, 4px);
+    line-height: 1.1;
     margin: 0;
+    overflow-wrap: anywhere;
 }
 
 .banner img {
@@ -75,7 +175,7 @@ body {
 }
 
 .sobre h2,
-.destaques > h2 {
+.destaques>h2 {
     font-family: Arial, sans-serif;
     font-size: clamp(36px, 7vw, 65px);
     font-weight: 1000;
@@ -102,9 +202,242 @@ body {
     object-fit: contain;
 }
 
+
+/* Seção Sobre */
 .texto-sobre {
     width: 55%;
     text-align: center;
+    color: white;
+}
+
+
+.linha {
+    width: 45%;
+    height: 6px;
+    background: #55e4e9;
+    margin: 0 auto 25px;
+    border-radius: 5px;
+}
+
+.texto-sobre h3 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(20px, 2.5vw, 27px);
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #55e4e9;
+}
+
+.texto-sobre p {
+    font-size: 20px !important;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.ler {
+    background: transparent;
+    color: #55e4e9;
+    border: 2px solid #55e4e9;
+    border-radius: 25px;
+    padding: 11px 28px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ler:hover {
+    background: transparent;
+    color: #ff1744;
+    border: 2px solid #ff1744;
+}
+
+#modal-sobre::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Edge e Safari */
+}
+
+/* Modal */
+#modal-sobre {
+    width: 80%;
+    max-width: 900px;
+    max-height: 85vh;
+    padding: 40px;
+    border: 2px solid #55e4e9;
+    border-radius: 15px;
+    background-color: #020b32;
+    color: white;
+    overflow-y: auto;
+    position: fixed;
+    margin: auto;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+#modal-sobre::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+/* Botão fechar */
+.fechar-modal {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 35px;
+    height: 35px;
+    margin-right: -37px;
+    background: transparent;
+    color: #55e4e9;
+    border: 2px solid #55e4e9;
+    color: #55e4e9;
+    font-size: 25px;
+    line-height: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.fechar-modal:hover {
+    background: transparent;
+    color: white;
+    border: 2px solid #ff1744;
+    border-radius: 50%;
+    background: #ff1744;
+}
+
+/* Imagem */
+.imagem-modal {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 2px solid #55e4e9;
+}
+
+/* Conteúdo */
+.post-texto {
+    text-align: justify;
+}
+
+.post-texto h1 {
+    color: #55e4e9;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.post-texto h2 {
+    color: #ff1744;
+    font-size: 21px;
+    font-weight: bold;
+    margin: 30px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #55e4e9;
+}
+
+.post-texto h3 {
+    color: #55e4e9;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 22px 0 12px;
+}
+
+.post-texto p {
+    color: white;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.post-texto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.post-texto ul,
+.post-texto ol {
+    padding-left: 25px;
+    margin-bottom: 25px;
+}
+
+.post-texto li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.post-texto a {
+    color: #55e4e9;
+    font-weight: bold;
+}
+
+.post-texto a:hover {
+    color: #ff1744;
+}
+
+/* Divisões entre os assuntos */
+.post-texto hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #55e4e9, transparent);
+    margin: 30px 0;
+}
+
+/* Barra de rolagem */
+#modal-sobre::-webkit-scrollbar {
+    width: 8px;
+}
+
+#modal-sobre::-webkit-scrollbar-track {
+    background: #020b32;
+}
+
+#modal-sobre::-webkit-scrollbar-thumb {
+    background: #55e4e9;
+    border-radius: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 650px) {
+    .texto-sobre {
+        width: 100%;
+    }
+
+    .texto-sobre p {
+        font-size: 15px;
+    }
+
+    #modal-sobre {
+        width: 95%;
+        max-height: 90vh;
+        padding: 25px 18px;
+    }
+
+    .imagem-modal {
+        max-height: 200px;
+    }
+
+    .post-texto h1 {
+        font-size: 23px;
+    }
+
+    .post-texto h2 {
+        font-size: 19px;
+    }
+
+    .post-texto h3 {
+        font-size: 17px;
+    }
+
+    .post-texto p,
+    .post-texto li {
+        font-size: 14px;
+    }
 }
 
 .linha {
@@ -123,7 +456,7 @@ body {
     padding: 40px 3% 70px;
 }
 
-.categoria-secao > h2 {
+.categoria-secao>h2 {
     margin-bottom: 25px;
 }
 
@@ -163,6 +496,7 @@ body {
 /* Organiza os cards */
 .cards {
     display: flex !important;
+    flex-wrap: wrap;
     align-items: stretch;
     gap: 30px;
     width: 100%;
@@ -179,16 +513,17 @@ body {
     color: black;
 }
 
-/* Ímpares: ciano e menores */
+
+/* Ímpares: menores */
 .card-projeto:nth-child(odd) {
     background-color: #55e4e9 !important;
-    flex: 0.5;
+    flex: 1 1 calc(30% - 15px);
 }
 
-/* Pares: vermelho e maiores */
+/* Pares: maiores */
 .card-projeto:nth-child(even) {
     background-color: #ff1744 !important;
-    flex: 1.5;
+    flex: 1.5 1 calc(60% - 15px);
 }
 
 /* Imagens */
@@ -211,6 +546,13 @@ footer {
     align-items: center;
     gap: 30px;
     padding: 55px 20px;
+}
+
+/* Footer mantém sempre o tema original */
+footer {
+    background-color: #aaa !important;
+    color: #020b32 !important;
+    border-top: 2px solid #55e4e9;
 }
 
 .footer-logo,
@@ -243,6 +585,34 @@ footer {
     font-size: 12px;
 }
 
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    margin-top: 5px;
+    background-color: #55e4e9;
+    color: #020b32;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.instagram-link img {
+    width: 22px;
+    height: 22px;
+    color: #020b32;
+}
+
+.instagram-link:hover {
+    background-color: #ff1744;
+    color: #020b32;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+
 @media (max-width: 650px) {
     .menu .nav-link {
         padding: 12px;
@@ -270,28 +640,29 @@ footer {
         max-height: 150px;
     }
 
+    /* Cards no celular */
     .cards {
-        gap: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .card-projeto {
+        width: 100%;
+        flex: none !important;
+        min-height: auto;
     }
 
     .card-projeto img {
-        height: 130px;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
     }
 
     .card-projeto p {
-        font-size: 10px;
-        padding: 10px;
-    }
-
-    .visitas .card-projeto:first-child,
-    .oficinas .card-projeto:last-child {
-        width: 38%;
-    }
-
-    .visitas .card-projeto:last-child,
-    .oficinas .card-projeto:first-child {
-        width: 62%;
-        margin-left: 0;
+        font-size: 15px;
+        padding: 15px;
     }
 
     footer {
@@ -307,4 +678,375 @@ footer {
     .footer-contato h2 {
         font-size: 22px;
     }
+}
+
+/* Carrossel*/
+
+.Carrossel {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.slides {
+    width: 400%;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 25%;
+    transition: 2s;
+}
+
+.slide img {
+    width: 100%;
+    height: clamp(300px, 45vw, 800px);
+    object-fit: cover;
+    display: block;
+}
+
+.manual-navigation {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    padding: 20px 0;
+    flex-shrink: 0;
+}
+
+.manual-btn {
+    border: 2px solid white;
+    background: transparent;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.manual-btn:hover {
+    background: #55e4e9;
+}
+
+.manual-btn:hover {
+    background-color: #55e4e9;
+}
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -25%;
+}
+
+#radio3:checked~.first {
+    margin-left: -50%;
+}
+
+#radio4:checked~.first {
+    margin-left: -75%;
+}
+
+/* Bolinha da imagem selecionada */
+.Carrossel:has(#radio1:checked) .manual-navigation label[for="radio1"],
+.Carrossel:has(#radio2:checked) .manual-navigation label[for="radio2"],
+.Carrossel:has(#radio3:checked) .manual-navigation label[for="radio3"],
+.Carrossel:has(#radio4:checked) .manual-navigation label[for="radio4"] {
+    background-color: #55e4e9;
+    border-color: #55e4e9;
+}
+
+/* Modo normal (escuro) */
+.manual-btn {
+    border-color: white;
+}
+
+.navigation-auto div {
+    border-color: #55e4e9;
+}
+
+/* Modo claro */
+body.modo-claro .manual-btn {
+    border-color: #020b32;
+}
+
+body.modo-claro .navigation-auto div {
+    border-color: #020b32;
+}
+
+body.modo-claro .manual-btn:hover {
+    background-color: #55e4e9;
+}
+
+body.modo-claro #radio1:checked~.navigation-auto .auto-btn1,
+body.modo-claro #radio2:checked~.navigation-auto .auto-btn2,
+body.modo-claro #radio3:checked~.navigation-auto .auto-btn3,
+body.modo-claro #radio4:checked~.navigation-auto .auto-btn4 {
+    background-color: #55e4e9;
+}
+
+/* pagina de contato*/
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap');
+
+/* Conteúdo da página */
+.contato-container {
+    padding: 60px 7%;
+}
+
+.contato-container h2 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    font-size: 3rem;
+}
+
+/* Caixas de integração */
+.integracao {
+    margin-bottom: 40px;
+    padding: 30px;
+    border: 2px solid #ff3333;
+    border-radius: 15px;
+}
+
+/* Alternância das bordas */
+.integracao:nth-child(even) {
+    border-color: #55e4e9;
+}
+
+.integracao:nth-child(odd) {
+    border-color: #ff3333;
+}
+
+
+/* Área de contato */
+#contato {
+    padding: 30px;
+}
+
+#contato table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#contato td {
+    vertical-align: middle;
+}
+
+#contato td:first-child {
+    text-align: left;
+    width: 75%;
+}
+
+#contato td:last-child {
+    text-align: right;
+    width: 25%;
+}
+
+/* Título */
+#contato h2 {
+    text-align: left;
+    font-size: 25px;
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+}
+
+/* Parágrafo */
+#contato p {
+    text-align: left;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Botão de e-mail */
+.btn-enviar {
+    display: inline-block;
+    color: #55e4e9;
+    background-color: transparent;
+    border: 2px solid #55e4e9;
+    border-radius: 25px;
+    padding: 12px 35px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.btn-enviar:hover {
+    background-color: transparent;
+    color: #ff1744;
+    text-decoration: none;
+    border: 2px solid #ff1744;
+}
+
+/* Calendário e mapa */
+.integracao iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: 2px solid #55e4e9;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+/* Responsividade */
+@media (max-width: 650px) {
+    .contato-container {
+        padding: 40px 5%;
+    }
+
+    #contato {
+        padding: 20px;
+    }
+
+    #contato h2 {
+        font-size: 21px;
+    }
+
+    #contato td:first-child {
+        width: 65%;
+    }
+
+    #contato td:last-child {
+        width: 35%;
+    }
+
+    .integracao iframe {
+        height: 300px;
+    }
+
+    .btn-enviar {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+/* MODAL SOBRE - MODO CLARO */
+
+body.modo-claro #modal-sobre,
+body.modo-claro #modal-sobre .modal-content,
+body.modo-claro #modal-sobre .modal-body,
+body.modo-claro #modal-sobre .modal-header,
+body.modo-claro #modal-sobre .modal-footer {
+    background-color: #ffffff !important;
+    color: #020b32 !important;
+}
+
+body.modo-claro #modal-sobre h1,
+body.modo-claro #modal-sobre h2,
+body.modo-claro #modal-sobre h3,
+body.modo-claro #sobre-titulo,
+body.modo-claro #modal-sobre p,
+body.modo-claro #modal-sobre span,
+body.modo-claro #modal-sobre li {
+    color: #020b32 !important;
+}
+
+body.modo-claro #modal-sobre .close {
+    color: #020b32 !important;
+}
+
+/* Tamanho responsivo do modal inicial */
+#modal-sobre {
+    font-size: 1rem;
+}
+
+#modal-sobre h1 {
+    font-size: 2rem;
+}
+
+#modal-sobre h2 {
+    font-size: 1.7rem;
+}
+
+#modal-sobre h3 {
+    font-size: 1.4rem;
+}
+
+#modal-sobre p {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+#modal-sobre button {
+    font-size: 1rem;
+}
+
+/* Acessibilidade - seção Quem Somos */
+.texto-sobre {
+    font-size: 1rem;
+}
+
+#sobre-titulo {
+    font-size: 1.5em;
+}
+
+#sobre-resumo {
+    font-size: 1em !important;
+    line-height: 1.7;
+}
+
+#btn-ler-sobre {
+    font-size: 1em;
+}
+
+/* Barra de rolagem personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #020b32;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #55e4e9;
+    border-radius: 10px;
+    border: 2px solid #020b32;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff1744;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #55e4e9 #020b32;
+}
+
+/* Botões no modo claro */
+body.modo-claro button,
+body.modo-claro .btn,
+body.modo-claro .btn-enviar,
+body.modo-claro .ler,
+body.modo-claro .instagram-link {
+    background-color: #55e4e9 !important;
+    color: #020b32 !important;
+    border-color: #55e4e9 !important;
+}
+
+/* Hover dos botões no modo claro */
+body.modo-claro button:hover,
+body.modo-claro .btn:hover,
+body.modo-claro .btn-enviar:hover,
+body.modo-claro .ler:hover,
+body.modo-claro .instagram-link:hover {
+    background-color: #ff1744 !important;
+    color: #020b32 !important;
+    border-color: #ff1744 !important;
 }

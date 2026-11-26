@@ -4,33 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <title>AutoBots</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+    </style>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand navbar-dark menu">
-        <a class="nav-link ativo" href="#inicio">Início</a>
-        <a class="nav-link" href="#sobre">Sobre</a>
-        <a class="nav-link" href="#contato">Contato</a>
+        <a class="nav-link ativo" href="index.html">Início</a>
+        <a class="nav-link" href="conteudos.html">Conteúdos</a>
+        <a class="nav-link" href="contato.html">Contato</a>
+
+        <div class="botoes-acessibilidade">
+            <button id="diminuir-fonte" title="Diminuir fonte">A-</button>
+            <button id="fonte-padrao" title="Restaurar fonte padrão">A</button>
+            <button id="aumentar-fonte" title="Aumentar fonte">A+</button>
+            <button id="modo-claro" title="Alternar modo claro">☀</button>
+        </div>
     </nav>
 
     <main id="inicio">
 
         <header class="logo-principal">
-            <h1>AUTOBOTS</h1>
+            <div class="titulotop">
+                <h1>AUTOBOTS</h1>
+            </div>
         </header>
 
-        <section class="banner">
-            <img src="assets/Wireframe_Principal.png" alt="Atividades do projeto AutoBots">
-            <div class="indicadores">
-                <span></span><span></span><span></span><span></span>
+
+        <div class="Carrossel">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <div class="slide first">
+                    <img src="assets/carrosel1.jpg" />
+                </div>
+
+                <div class="slide">
+                    <img src="assets/carrosel2.jpg" />
+                </div>
+
+                <div class="slide">
+                    <img src="assets/carrosel3.jpg" />
+                </div>
+
+                <div class="slide">
+                    <img src="assets/carrosel4.jpg" />
+                </div>
+
             </div>
-        </section>
+
+            <div class="manual-navigation">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+        </div>
+        <script src="scriptCarrossel.js"></script>
 
         <section class="sobre" id="sobre">
             <h2>QUEM SOMOS</h2>
@@ -42,15 +82,21 @@
 
                 <div class="texto-sobre">
                     <div class="linha"></div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Cras porttitor pharetra mi. Nulla tincidunt leo eget
-                        tellus tempus pulvinar. Curabitur tristique porta nulla,
-                        id tempus tellus suscipit et. Integer dui velit, sodales
-                        quis laoreet sit amet, hendrerit id diam. Mauris vitae
-                        justo sollicitudin, elementum orci at, suscipit quam.
-                    </p>
+
+                    <h3 id="sobre-titulo"></h3>
+
+                    <p id="sobre-resumo"></p>
+
+                    <button id="btn-ler-sobre" class="ler">
+                        Ler mais →
+                    </button>
                 </div>
+
+                <dialog id="modal-sobre">
+                    <button class="fechar-modal" id="fechar-modal">&times;</button>
+
+                    <div id="modal-conteudo"></div>
+                </dialog>
             </div>
         </section>
 
@@ -58,26 +104,33 @@
             <h2>DESTAQUES</h2>
 
             <h3 class="titulo-categoria"></h3>
-            
+
 
         </section>
 
     </main>
 
-    <footer id="contato">
+    <footer>
         <div class="footer-logo">
             <img src="assets/Logo.png" alt="Logo AutoBots">
             <h3>AUTOBOTS</h3>
+            <p>Grupo de Estudos em Robótica e Automação</p>
         </div>
 
         <div class="footer-contato">
             <h2>CONTATO</h2>
-            <p>Telefone: 0000-0000</p>
-            <p>Instagram:<br>@autobots.ifmachado</p>
+            <a class="instagram-link" href="https://www.instagram.com/autobotsifmachado/" target="_blank"
+                rel="noopener noreferrer">
+
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram">
+
+                <span>@autobots.ifmachado</span>
+            </a>
         </div>
     </footer>
 
 </body>
 <script src="./script.js" type="module"></script>
+<script src="./acessibilidade.js"></script>
 
 </html>

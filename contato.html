@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>AutoBots - Contato</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand navbar-dark menu">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="conteudos.html">Conteúdos</a>
+        <a class="nav-link ativo" href="contato.html">Contato</a>
+
+        <div class="botoes-acessibilidade">
+            <button id="diminuir-fonte" title="Diminuir fonte">A-</button>
+            <button id="fonte-padrao" title="Restaurar fonte padrão">A</button>
+            <button id="aumentar-fonte" title="Aumentar fonte">A+</button>
+            <button id="modo-claro" title="Alternar modo claro">☀</button>
+        </div>
+    </nav>
+
+    <main id="inicio">
+
+        <header class="logo-principal">
+            <div class="titulotop">
+                <h1>CONTATO</h1>
+            </div>
+        </header>
+
+        <section class="contato-container">
+
+            <!-- FORMULÁRIO DE CONTATO -->
+            <div class="integracao" id="contato">
+                <table>
+                    <tr>
+                        <td>
+                            <h2>ENTRE EM CONTATO CONOSCO</h2>
+
+                            <p>
+                                Tem dúvidas ou deseja marcar uma visita?
+                                Clique no botão abaixo para enviar um e-mail.
+                            </p>
+                        </td>
+                        <td>
+                            <a href="https://mail.google.com/mail/?view=cm&to=laercio.antonio%40alunos.ifsuldeminas.edu.br"
+                                target="_blank" rel="noopener noreferrer" class="btn-enviar">
+                                Enviar e-mail
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <!-- GOOGLE AGENDA -->
+            <div class="integracao" id="agenda">
+                <h2>AGENDA AUTOBOTS</h2>
+
+                <p>
+                    Confira os próximos eventos, reuniões e atividades
+                    do grupo.
+                </p>
+
+                <iframe
+                    src="https://calendar.google.com/calendar/embed?src=laercio.antonio%40alunos.ifsuldeminas.edu.br&ctz=America%2FSao_Paulo"
+                    style="border: 0" frameborder="0" scrolling="no">
+                </iframe>
+            </div>
+
+            <!-- GOOGLE MAPS -->
+            <div class="integracao" id="localizacao">
+                <h2>ONDE ESTAMOS</h2>
+
+                <p>
+                    IFSULDEMINAS - Campus Machado
+                </p>
+
+                <iframe
+                    src="https://maps.google.com/maps?q=IFSULDEMINAS%20Campus%20Machado&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    loading="lazy" allowfullscreen>
+                </iframe>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="assets/Logo.png" alt="Logo AutoBots">
+            <h3>AUTOBOTS</h3>
+            <p>Grupo de Estudos em Robótica e Automação</p>
+        </div>
+
+        <div class="footer-contato">
+            <h2>CONTATO</h2>
+            <a class="instagram-link" href="https://www.instagram.com/autobotsifmachado/" target="_blank"
+                rel="noopener noreferrer">
+
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram">
+
+                <span>@autobots.ifmachado</span>
+            </a>
+        </div>
+    </footer>
+
+</body>
+
+<script src="./acessibilidade.js"></script>
+
+</html>

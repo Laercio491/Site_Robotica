@@ -1,0 +1,357 @@
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 40px;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.titulo-conteudos {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 12px;
+}
+
+.titulo-conteudos h1 {
+    font-family: "Dela Gothic One", Arial, sans-serif;
+    font-size: clamp(50px, 15vw, 70px);
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.conteudos-container {
+    flex: 1;
+    min-height: 400px;
+    padding: 5px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.categorias-container {
+    min-height: 350px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid #55e4e9;
+    border-radius: 8px;
+    background-color: #171c27;
+}
+
+.categorias-abas {
+    display: flex;
+    flex-shrink: 0;
+    overflow-x: auto;
+    background-color: #20242a;
+}
+
+.categoria-aba {
+    flex: 1;
+    min-width: 130px;
+    padding: 15px;
+    border: 2px solid #393e46;
+    background-color: #20242a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.categoria-aba.ativa {
+    background-color: #55e4e9;
+    color: #020b32;
+    border-color: #55e4e9;
+}
+
+.categorias-conteudo {
+    flex: 1;
+    min-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.categoria-painel {
+    display: none;
+}
+
+.categoria-painel.ativo {
+    display: block;
+}
+
+.lista-conteudos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: #292d33;
+    border-radius: 8px;
+    color: white;
+}
+
+.item-conteudo img {
+    width: 140px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-conteudo-info {
+    flex: 1;
+}
+
+.item-conteudo h3 {
+    font-size: 20px;
+    color: #55e4e9;
+    margin-bottom: 8px;
+}
+
+.item-conteudo p {
+    margin: 0;
+    color: white;
+}
+
+.btn-detalhes {
+    padding: 8px 18px;
+    border: 1px solid #55e4e9;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #55e4e9;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-detalhes:hover {
+    background-color: transparent;
+    color: #ff1744;
+    text-decoration: none;
+    border: 2px solid #ff1744;
+}
+
+.carregando {
+    color: white;
+    padding: 20px;
+}
+
+#modal-detalhes {
+    width: 80%;
+    max-width: 850px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 30px;
+    border: 2px solid #55e4e9;
+    border-radius: 12px;
+    background-color: #020b32;
+    color: white;
+
+    position: fixed;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+#modal-detalhes::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.imagem-modal-conteudo {
+    display: block;
+    width: 50%;
+    max-width: 800px;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+.fechar-modal {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 35px;
+    height: 35px;
+    margin-right: -20px;
+    background: transparent;
+    color: #55e4e9;
+    border: 2px solid #55e4e9;
+    color: #55e4e9;
+    font-size: 25px;
+    line-height: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.fechar-modal:hover {
+    background: transparent;
+    color: white;
+    border: 2px solid #ff1744;
+    border-radius: 50%;
+    background: #ff1744;
+}
+
+#modal-post h2 {
+    color: #55e4e9;
+    margin-bottom: 20px;
+}
+
+#modal-post img {
+    max-width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+#modal-post p {
+    line-height: 1.7;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+
+@media (max-width: 650px) {
+    .titulo-conteudos {
+        padding: 10px;
+    }
+
+    .titulo-conteudos h1 {
+        font-size: clamp(30px, 8vw, 50px);
+    }
+
+    .conteudos-container {
+        padding: 5px 8px 15px;
+        min-height: 350px;
+    }
+
+    .categorias-container {
+        min-height: 300px;
+    }
+
+    .categorias-conteudo {
+        padding: 12px;
+    }
+
+    .categoria-aba {
+        min-width: 110px;
+        padding: 12px 8px;
+    }
+
+    .item-conteudo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .imagem-modal {
+        height: 220px;
+    }
+
+    .item-conteudo img {
+        width: 100%;
+        height: 160px;
+    }
+
+    .btn-detalhes {
+        align-self: flex-start;
+    }
+
+    #modal-detalhes {
+        width: 95%;
+        max-width: none;
+        max-height: 85vh;
+        padding: 20px;
+    }
+}
+
+body.modo-claro #modal-detalhes {
+    background-color: #ffffff !important;
+    color: #020b32 !important;
+}
+
+body.modo-claro #modal-detalhes h1,
+body.modo-claro #modal-detalhes h2,
+body.modo-claro #modal-detalhes h3,
+body.modo-claro #modal-detalhes p,
+body.modo-claro #modal-detalhes span,
+body.modo-claro #modal-detalhes li {
+    color: #020b32 !important;
+}/* MODO CLARO - PÁGINA DE CONTEÚDOS */
+
+body.modo-claro .categorias-container {
+    background-color: #ffffff !important;
+    border-color: #020b32;
+}
+
+body.modo-claro .categorias-abas {
+    background-color: #e5eaf0 !important;
+}
+
+body.modo-claro .categoria-aba {
+    background-color: #e5eaf0 !important;
+    color: #020b32 !important;
+    border-color: #c5ccd5;
+}
+
+body.modo-claro .categoria-aba.ativa {
+    background-color: #55e4e9 !important;
+    color: #020b32 !important;
+}
+
+body.modo-claro .categorias-conteudo {
+    background-color: #ffffff !important;
+}
+
+body.modo-claro .categoria-painel {
+    color: #020b32;
+}
+
+body.modo-claro .item-conteudo {
+    background-color: #e5eaf0 !important;
+    color: #020b32 !important;
+}
+
+body.modo-claro .item-conteudo h3,
+body.modo-claro .item-conteudo p {
+    color: #020b32 !important;
+}
+
+body.modo-claro .carregando {
+    color: #020b32 !important;
+}
+
+body.modo-claro .btn-detalhes {
+    color: #020b32 !important;
+    border-color: #020b32 !important;
+}
+
+body.modo-claro .btn-detalhes:hover {
+    color: #020b32 !important;
+    border-color: #ff1744 !important;
+}

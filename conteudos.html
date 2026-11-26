@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>AutoBots - Conteúdos</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="conteudos.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+</style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand navbar-dark menu">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link ativo" href="conteudos.html">Conteúdos</a>
+        <a class="nav-link" href="contato.html">Contato</a>
+
+        <div class="botoes-acessibilidade">
+            <button id="diminuir-fonte" title="Diminuir fonte">A-</button>
+            <button id="fonte-padrao" title="Restaurar fonte padrão">A</button>
+            <button id="aumentar-fonte" title="Aumentar fonte">A+</button>
+            <button id="modo-claro" title="Alternar modo claro">☀</button>
+        </div>
+    </nav>
+
+    <header class="logo-principal">
+            <div class="titulo-conteudos">
+                <h1>CONTEÚDOS</h1>
+            </div>
+        </header>
+
+    <main class="conteudos-container">
+        <div id="listaCategorias" class="categorias-container">
+            <p class="carregando">Carregando categorias...</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="assets/Logo.png" alt="Logo AutoBots">
+            <h3>AUTOBOTS</h3>
+            <p>Grupo de Estudos em Robótica e Automação</p>
+        </div>
+
+        <div class="footer-contato">
+            <h2>CONTATO</h2>
+            <a class="instagram-link" href="https://www.instagram.com/autobotsifmachado/" target="_blank"
+                rel="noopener noreferrer">
+
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram">
+
+                <span>@autobots.ifmachado</span>
+            </a>
+        </div>
+    </footer>
+
+    <dialog id="modal-detalhes">
+        <button id="fechar-modal" class="fechar-modal">X</button>
+        <article id="modal-post"></article>
+    </dialog>
+
+    <script src="./scriptConteudos.js" type="module"></script>
+    <script src="./acessibilidade.js"></script>
+
+</body>
+
+</html>
